@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-title" content="아이랑용인">
 <title>아이랑 용인</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="https://jinbok2279.github.io/yongin-edu-collector/icon-192.png">
+<link rel="apple-touch-icon" href="https://jinbok2279.github.io/yongin-edu-collector/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
 <style>
@@ -370,7 +370,7 @@ function viewHome() {
       <div style="flex:1;min-width:0;font-size:13px;line-height:1.55"><b>사이트 주소가 곧 바뀌어요</b><br><span style="color:var(--muted)">예전 주소로 들어오셔도 새 주소로 자동 연결되고, 등록한 아이 정보도 그대로 옮겨져요. 따로 하실 일은 없어요.</span></div>
       <button onclick="store('edu.noteAddr','1');render()" aria-label="닫기" style="border:0;background:none;font-size:18px;color:var(--muted);cursor:pointer;padding:0 4px">×</button></div>`;
   $view.innerHTML = `<div style="display:flex;align-items:center;gap:9px;margin:2px 0 14px">
-      <img src="icon-192.png" alt="송골랩 로고" width="32" height="32" style="border-radius:9px;box-shadow:0 2px 8px rgba(30,40,90,.12);flex:0 0 auto">
+      <img src="https://jinbok2279.github.io/yongin-edu-collector/icon-192.png" alt="송골랩 로고" width="32" height="32" style="border-radius:9px;box-shadow:0 2px 8px rgba(30,40,90,.12);flex:0 0 auto">
       <div style="min-width:0;flex:1;line-height:1.15"><div style="font-size:18px;font-weight:800;letter-spacing:-.3px">아이랑 용인</div><div style="font-size:10.5px;color:var(--muted);margin-top:2px">by 송골랩 · 개인이 만든 서비스</div></div>
       <button class="chip glass" style="flex:0 0 auto;font-size:12px;padding:0 12px;height:34px" onclick="go('region')">${icon.pin} ${esc(regionLabel().replace("용인시 전체", "용인").replace("용인 ", ""))} · ${levelLabel()} ▾</button></div>
     ${addrNote}${hero}${quick}${ks.length ? homeMeals(homeKid === "all" ? ks : ks.filter(k => k.id === homeKid)) : ""}${mine}${notice}${homeEvents()}${homeLibrary()}${homeBooks()}${footer()}`;
