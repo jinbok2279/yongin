@@ -1,5 +1,5 @@
 // 아이랑 용인 - 오프라인 지원
-const CACHE = "edu-app-v58";
+const CACHE = "edu-app-v59";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {
