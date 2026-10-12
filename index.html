@@ -371,7 +371,8 @@ function viewHome() {
       <button onclick="store('edu.noteAddr','1');render()" aria-label="닫기" style="border:0;background:none;font-size:18px;color:var(--muted);cursor:pointer;padding:0 4px">×</button></div>`;
   $view.innerHTML = `<div style="display:flex;align-items:center;gap:9px;margin:2px 0 14px">
       <img src="https://jinbok2279.github.io/yongin-edu-collector/icon-192.png" alt="송골랩 로고" width="32" height="32" style="border-radius:9px;box-shadow:0 2px 8px rgba(30,40,90,.12);flex:0 0 auto">
-      <div style="min-width:0;flex:1;line-height:1.15"><div style="font-size:18px;font-weight:800;letter-spacing:-.3px">아이랑 용인</div><div style="font-size:10.5px;color:var(--muted);margin-top:2px">by 송골랩 · 개인이 만든 서비스</div></div>
+      <div style="min-width:0;flex:1;line-height:1.15"><div style="font-size:18px;font-weight:800;letter-spacing:-.3px;white-space:nowrap">아이랑 용인</div><div style="font-size:10.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">by 송골랩 · 개인이 만든 서비스</div></div>
+      <button class="chip glass" aria-label="지인에게 알려주기" title="지인에게 알려주기" style="flex:0 0 auto;width:34px;height:34px;padding:0;justify-content:center;color:var(--indigo)" onclick="shareApp()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
       <button class="chip glass" style="flex:0 0 auto;font-size:12px;padding:0 12px;height:34px" onclick="go('region')">${icon.pin} ${esc(regionLabel().replace("용인시 전체", "용인").replace("용인 ", ""))} · ${levelLabel()} ▾</button></div>
     ${addrNote}${hero}${quick}${ks.length ? homeMeals(homeKid === "all" ? ks : ks.filter(k => k.id === homeKid)) : ""}${mine}${notice}${homeEvents()}${homeLibrary()}${homeBooks()}${footer()}`;
 }
@@ -478,7 +479,7 @@ function viewMy() {
       <div class="lift card-pad">
         <div class="row"><span>시범 운영 시작</span><span class="val">2026년 10월 10일</span></div>
         <div class="row"><span>마지막 업데이트</span><span class="val">${esc(DATA.updated_at)}</span></div>
-        <div class="row" onclick="adminTap()" style="cursor:default;user-select:none"><span>버전</span><span class="val">1.0.22 (시범 운영)</span></div>
+        <div class="row" onclick="adminTap()" style="cursor:default;user-select:none"><span>버전</span><span class="val">1.0.23 (시범 운영)</span></div>
         <div class="row" onclick="go('news')" style="cursor:pointer"><span>업데이트 소식${newsUnseen() ? ' <span style="display:inline-block;margin-left:4px;padding:1px 6px;border-radius:8px;background:var(--coral, #E5533D);color:#fff;font-size:10px;font-weight:800;vertical-align:2px">NEW</span>' : ""}</span><span class="val" style="color:var(--indigo);font-weight:700">${esc(newsDate(NEWS[0].d))} ›</span></div>
         <div class="row"><span>개발자 이메일</span><a class="val" href="mailto:songgollab@gmail.com" style="color:var(--indigo);font-weight:700;text-decoration:none">songgollab@gmail.com</a></div>
         <div class="row"><span>블로그 · 송골랩</span><a class="val" href="https://songgollab.blogspot.com/" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:700;text-decoration:none">songgollab.blogspot.com ›</a></div>
@@ -1417,7 +1418,7 @@ function viewAdmin() {
   const hits = (A.hits || {}).hits || [];
   const pages = hits.filter(h => !h.event), events = hits.filter(h => h.event);
   const list = (rows, label) => rows.length ? `<div class="lift card-pad">${rows.map(([k, v]) => `<div class="row"><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(k)}</span><span class="val"><b>${v.toLocaleString()}</b></span></div>`).join("")}</div>` : `<div class="lift empty">${label}</div>`;
-  const evName = { "아이-등록": "아이 등록", "아이-수정": "아이 정보 수정", "학원-추가": "학원 추가", "책-클릭": "인기 도서 클릭", "앱-설치": "홈 화면에 설치", "관심-알림": "★ 알림 기능 알림 신청", "리포트-보기": "수강료 리포트 보기" };
+  const evName = { "아이-등록": "아이 등록", "아이-수정": "아이 정보 수정", "학원-추가": "학원 추가", "책-클릭": "인기 도서 클릭", "앱-설치": "홈 화면에 설치", "관심-알림": "★ 알림 기능 알림 신청", "리포트-보기": "수강료 리포트 보기", "지인-공유": "지인에게 알려주기" };
   $view.innerHTML = `${head}
     ${A.warn ? `<div class="lift empty" style="margin:10px 0">일부 통계를 못 불러왔어요: ${esc(A.warn)}</div>` : ""}
     <p style="font-size:12px;color:var(--muted);margin:6px 0 14px">방문자 수 기준 · ${A.at.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" })} 불러옴 · <a href="#admin" onclick="ADMIN=null;adminMonths=null;render();return false">새로고침</a></p>
@@ -1580,6 +1581,14 @@ function devInfo() {
   return { ios, android, kakao, inApp, samsung, iosChrome, iosOther, standalone, mobile: ios || android };
 }
 function siteUrl() { return location.origin + location.pathname; }
+// 지인에게 알려주기: 휴대폰 공유창(카톡·문자 등), 안 되면 주소 복사
+function shareApp() {
+  const url = siteUrl();
+  const data = { title: "아이랑 용인", text: "용인 아이 학교 급식·일정, 도서관, 학원, 유치원, 행사를 한곳에서 보는 무료 서비스예요.", url };
+  trackEvent("지인-공유");
+  if (navigator.share) { navigator.share(data).catch(() => {}); return; }
+  (navigator.clipboard ? navigator.clipboard.writeText(data.text + "\n" + url) : Promise.reject()).then(() => toast("소개 글과 주소를 복사했어요. 카톡에 붙여 넣어 알려 주세요")).catch(() => toast(url));
+}
 function copyLink() {
   const url = siteUrl();
   (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast("주소를 복사했어요")).catch(() => toast(url));
