@@ -525,7 +525,7 @@ function viewMy() {
       <div class="lift card-pad">
         <div class="row"><span>시범 운영 시작</span><span class="val">2026년 10월 10일</span></div>
         <div class="row"><span>마지막 업데이트</span><span class="val">${esc(DATA.updated_at)}</span></div>
-        <div class="row" onclick="adminTap()" style="cursor:default;user-select:none"><span>버전</span><span class="val">1.0.25 (시범 운영)</span></div>
+        <div class="row" onclick="adminTap()" style="cursor:default;user-select:none"><span>버전</span><span class="val">1.0.26 (시범 운영)</span></div>
         <div class="row" onclick="go('news')" style="cursor:pointer"><span>업데이트 소식${newsUnseen() ? ' <span style="display:inline-block;margin-left:4px;padding:1px 6px;border-radius:8px;background:var(--coral, #E5533D);color:#fff;font-size:10px;font-weight:800;vertical-align:2px">NEW</span>' : ""}</span><span class="val" style="color:var(--indigo);font-weight:700">${esc(newsDate(NEWS[0].d))} ›</span></div>
         <div class="row"><span>개발자 이메일</span><a class="val" href="mailto:songgollab@gmail.com" style="color:var(--indigo);font-weight:700;text-decoration:none">songgollab@gmail.com</a></div>
         <div class="row"><span>블로그 · 송골랩</span><a class="val" href="https://songgollab.blogspot.com/" target="_blank" rel="noopener" style="color:var(--indigo);font-weight:700;text-decoration:none">songgollab.blogspot.com ›</a></div>
@@ -1267,6 +1267,9 @@ function viewElite() {
 // ---------- 이용 안내 · 개인정보 ----------
 // ---------- 업데이트 소식 (날짜별) ----------
 const NEWS = [
+  { d: "2026-10-12", v: "1.0.26", t: "친구에게 바로 알려 줄 수 있어요", items: [
+    "홈 맨 위 <b>공유 버튼(↑)</b>을 누르면 카카오톡·문자로 아이랑 용인을 바로 보낼 수 있어요.",
+    "공유창이 뜨지 않는 휴대폰에서는 소개 글과 주소가 복사돼요. 대화창에 붙여 넣어 주세요."] },
   { d: "2026-10-11", v: "1.0.17", t: "이름이 '아이랑 용인'으로 바뀌었어요", items: [
     "아이와 함께하는 용인 생활 정보를 모아 보여 드린다는 뜻으로 이름을 <b>아이랑 용인</b>으로 바꿨어요.",
     "사이트 주소와 휴대폰에 저장한 아이 정보는 <b>그대로</b>예요. 다시 등록하지 않아도 돼요."] },
