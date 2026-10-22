@@ -161,10 +161,10 @@ a.ev{color:inherit;text-decoration:none}
 .kidinfo .dday{flex:0 0 auto;text-align:center;background:#E6F3EA;color:#1E6A41;border-radius:16px;padding:8px 12px;min-width:76px}
 .kidinfo .dday b{display:block;font-size:22px;font-weight:800;line-height:1.1}
 .kidinfo .dday span{font-size:11px;font-weight:700}
-.libgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.libtile{display:flex;align-items:center;gap:8px;border:0;font:inherit;color:var(--ink);text-align:left;cursor:pointer;padding:14px 10px 14px 12px;min-height:84px}
+.libgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.libtile{min-width:0;display:flex;align-items:center;gap:8px;border:0;font:inherit;color:var(--ink);text-align:left;cursor:pointer;padding:14px 10px 14px 12px;min-height:84px}
 .libtile img{width:40px;height:40px;object-fit:contain;flex:0 0 auto}
-.libtile .nm{font-size:13px;font-weight:700;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.libtile .nm{font-size:13px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-all}
 .libtile .chev{color:var(--muted);font-size:16px;flex:0 0 auto}
 .mgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
 .mtile{border:0;font:inherit;color:var(--ink);background:#fff;border-radius:20px;padding:14px 4px 12px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;min-height:112px;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(40,32,16,.05),0 12px 24px -14px rgba(70,56,30,.24)}
